@@ -1,4 +1,4 @@
-package com.sqld.test.handler.ex;
+package com.social.test.handler.ex;
 
 public class CustomApiException extends RuntimeException {
 

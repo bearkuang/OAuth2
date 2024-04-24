@@ -4,7 +4,7 @@ import com.social.test.config.auth.LoginUser;
 import com.social.test.dto.ResponseDto;
 import com.social.test.dto.user.UserReqDto;
 import com.social.test.dto.user.UserRespDto;
-import com.sqld.test.handler.ex.CustomApiException;
+import com.social.test.handler.ex.CustomApiException;
 import com.social.test.service.CustomOAuth2UserService;
 import com.social.test.service.UserService;
 import lombok.RequiredArgsConstructor;

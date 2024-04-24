@@ -1,7 +1,7 @@
 package com.social.test.handler;
 
 import com.social.test.dto.ResponseDto;
-import com.sqld.test.handler.ex.CustomApiException;
+import com.social.test.handler.ex.CustomApiException;
 import com.social.test.handler.ex.CustomValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
