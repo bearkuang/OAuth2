@@ -8,16 +8,16 @@ file_exists_behavior: OVERWRITE
 permissions:
   - object: /home/app
     pattern: '**'
-    owner: root
-    group: root
+    owner: ubuntu
+    group: ubuntu
 
 hooks:
   BeforeInstall:
     - location: docker-stop.sh
       timeout: 300
-      runas: root
+      runas: ubuntu
 
   AfterInstall:
     - location: deploy-be.sh
       timeout: 300
-      runas: root
+      runas: ubuntu
