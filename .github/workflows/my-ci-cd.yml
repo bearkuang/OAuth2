@@ -27,10 +27,6 @@ jobs:
         
    deploy:
     needs: build
-    env:
-      ENV_PATH: .env
-      S3_BUCKET_DIR_NAME: test-mydb-bucket
-      DEPLOYMENT_GROUP_NAME: test-mydb-bucket
     runs-on: ubuntu-latest
     environment: deploy
     steps:
@@ -39,13 +35,6 @@ jobs:
     
       - name: 🗂️ Make config folder
         run: mkdir -p config
-    
-      - name: ⚙️ Create .env file
-        run: |
-              touch ${{ env.ENV_PATH }}
-              echo DOMAIN_FIR=${{ secrets.DOMAIN_FIR }} >> ${{ env.ENV_PATH }}
-              echo SOCKET_PORT_PROD=${{ secrets.SOCKET_PORT_PROD }} >> ${{ env.ENV_PATH }}
-              echo SOCKET_PORT_TEST=${{ secrets.SOCKET_PORT_TEST }} >> ${{ env.ENV_PATH }}
     
       - name: 📦 Zip project files
         run: zip -r ./$GITHUB_SHA.zip . 
