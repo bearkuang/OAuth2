@@ -1,12 +1,11 @@
 name: Deploy to AWS EC2
 
 on:
-  pull_request:
+  push:
     branches: [main]
 
 jobs:
-   build: 
-    if: github.event.pull_request.merged == true
+   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
