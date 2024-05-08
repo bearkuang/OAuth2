@@ -63,7 +63,7 @@ jobs:
           context: .
           file: .github/workflows/Dockerfile
           push: true
-          tags: ${{ secret.AWS_ECR_REPOSITORY }}
+          tags: ${{ secrets.AWS_ECR_REPOSITORY }}
     
       - name: 🚛 Upload to S3
         run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://${{ secrets.S3_BUCKET_NAME }}/${{ env.S3_BUCKET_DIR_NAME }}/$GITHUB_SHA.zip 
