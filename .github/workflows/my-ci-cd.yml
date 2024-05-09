@@ -52,7 +52,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
-          aws ecr get-login-password --region ${{ env.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ECR_REGISTRY }}
+          aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${{ secrets.AWS_ECR_REGISTRY }}
                 
       - name: 🔨 Build and Push to ECR
         uses: docker/build-push-action@v5
@@ -67,7 +67,7 @@ jobs:
               
       - name: 🚀 Deploy to EC2 with CodeDeploy
         run: aws deploy create-deployment
-            --application-name codedeploy-app
+            --application-name app_for_codedeploy
             --deployment-config-name CodeDeployDefault.AllAtOnce
             --deployment-group-name ${{ env.DEPLOYMENT_GROUP_NAME }}
             --s3-location bucket=${{ secrets.S3_BUCKET_NAME }},bundleType=zip,key=${{ env.S3_BUCKET_DIR_NAME }}/$GITHUB_SHA.zip
