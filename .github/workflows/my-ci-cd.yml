@@ -24,6 +24,14 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "11"
+
+      - name: 🔑 Replace environment variables in application.properties
+        run: |
+          cp src/main/resources/application.properties.template src/main/resources/application.properties
+          sed -i 's/\${DB_USERNAME}/'"${{ secrets.DB_USERNAME }}"'/g' src/main/resources/application.properties
+          sed -i 's/\${DB_PASSWORD}/'"${{ secrets.DB_PASSWORD }}"'/g' src/main/resources/application.properties
+          sed -i 's/\${GOOGLE_CLIENT_ID}/'"${{ secrets.GOOGLE_CLIENT_ID }}"'/g' src/main/resources/application.properties
+          sed -i 's/\${GOOGLE_CLIENT_SECRET}/'"${{ secrets.GOOGLE_CLIENT_SECRET }}"'/g' src/main/resources/application.properties 
         
    deploy:
     needs: build
