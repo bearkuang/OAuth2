@@ -71,4 +71,4 @@ jobs:
           aws deploy create-deployment
             --application-name app_for_codedeploy
             --deployment-group-name ${{ secrets.DEPLOYMENT_GROUP_NAME }}
-            --s3-location bucket=${{ secrets.S3_BUCKET_NAME }},bundleType=zip
+            --s3-location bucket=${{ secrets.S3_BUCKET_NAME }},key=${{ env.GITHUB_SHA }},bundleType=zip
