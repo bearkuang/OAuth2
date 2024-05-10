@@ -1,0 +1,20 @@
+server.port= 10004
+server.servlet.encoding.charset=utf-8
+server.servlet.encoding.force=true
+
+spring.datasource.url=jdbc:mariadb://${DB_ENDPOINT}
+spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+spring.datasource.username=${DB_USERNAME}
+spring.datasource.password=${DB_PASSWORD}
+
+spring.jpa.open-in-view=false
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.default_batch_fetch_size=100
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.show-sql=true
+spring.output.ansi.enabled=always
+
+# Google
+spring.security.oauth2.client.registration.google.client-id=${GOOGLE_CLIENT_ID}
+spring.security.oauth2.client.registration.google.client-secret=${GOOGLE_CLIENT_SECRET}
+spring.security.oauth2.client.registration.google.scope=profile,email
